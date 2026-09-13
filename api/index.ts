@@ -1,8 +1,7 @@
-import serverless from 'serverless-http';
 import { createApp } from '../src/app';
 
-const app = createApp();
-
-// Wraps the Express app as a single Vercel serverless function. vercel.json rewrites
-// all /api/* traffic here (see rewrites), so this file's path segment is arbitrary.
-export default serverless(app);
+// Vercel's Node runtime calls exported handlers as (req, res) — the same signature
+// an Express app already has, so we export it directly. (Previously this wrapped
+// the app in `serverless-http`, which expects AWS Lambda's (event, context) shape
+// instead and doesn't work as a Vercel handler.)
+export default createApp();
