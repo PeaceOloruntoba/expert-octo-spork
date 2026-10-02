@@ -69,3 +69,5 @@ This repo is set up to deploy as-is:
 
 ## Roles
 `donor`, `recipient`, `clinic_staff`, `admin`, `ethics_reviewer` — enforced via `requireRole()` middleware per route.
+
+### Omoks
